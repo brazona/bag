@@ -11,7 +11,7 @@
     "reinstall": "npm run clean && npm install",
     "file_env": "cp ./src/assets/env.template.js ./src/assets/env.js",
     "prepare-env": "bash ./scripts/prepare-env.sh",
-    "docker-compose": "npm run prepare-env && bash ./scripts/docker-compose.sh"
+    "docker-compose": "bash ./scripts/docker-compose.sh"
   },
   "private": true,
   "dependencies": {
