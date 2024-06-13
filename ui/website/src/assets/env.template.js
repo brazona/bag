@@ -1,9 +1,9 @@
 (function(window) {
     window.env = window.env || {};
     // Environment variables
-    window["env"]["APP_ENVIRONMENT"] = "${APP_ENVIRONMENT}";
-    window["env"]["APP_VERSION"] = "${APP_VERSION}";
-    window["env"]["LINK_GITHUB"] = "${LINK_GITHUB}";
-    window["env"]["LINK_YOUTUBE"] = "${LINK_YOUTUBE}";
-    window["env"]["LINK_LINKEDIN"] = "${LINK_LINKEDIN}";
+    window["env"]["WEBSITE_VERSION"] = "${WEBSITE_VERSION}";
+    window["env"]["WEBSITE_URL_APPLICATION"] = "${WEBSITE_URL_APPLICATION}";
+    window["env"]["WEBSITE_URL_GITHUB"] = "${WEBSITE_URL_GITHUB}";
+    window["env"]["WEBSITE_URL_YOUTUBE"] = "${WEBSITE_URL_YOUTUBE}";
+    window["env"]["WEBSITE_URL_LINKEDIN"] = "${WEBSITE_URL_LINKEDIN}";
   })(this);

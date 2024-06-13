@@ -17,21 +17,27 @@ import { ActivatedRoute, Router } from "@angular/router";
   })
 
 export abstract class GenericComponent implements OnInit, OnDestroy{
-    toolBarList: ISiderbar[] = SideBarConst;
-    sidebarExpan: boolean = false;
 
     @Output()
     isToolbarActive = new EventEmitter<boolean>();
+
+    // Mapeamento das variáveis de ambiente
+    protected env = environment;
+    url_github: string = this.env.WEBSITE_URL_GITHUB;
+    url_linkedin: string = this.env.WEBSITE_URL_LINKEDIN;
+    url_youtube: string = this.env.WEBSITE_URL_YOUTUBE;
+    url_ui_app: string = this.env.WEBSITE_URL_APPLICATION;
+    nr_version: string = this.env.WEBSITE_VERSION;
+    toolBarList: ISiderbar[] = SideBarConst;
+    sidebarExpan: boolean = false;
+
+    
 
     destroyed = new Subject<void>();
     currentScreenSize: IScreenSize = {id: '', size: '', type_screen: 0};
     currentBreakpoints: string = "";
     isHandPortrait: boolean = false;
-    url_github: string = "https://github.com/session";
-    url_linkedin: string = "https://br.linkedin.com";
-    url_youtube: string = "https://www.youtube.com/";
-    url_ui_app: string = "https://www.youtube.com/";
-    protected env = environment;
+    
     // Create a map to display breakpoint names for demonstration purposes.
     displayNameMap = new Map([
         [Breakpoints.XSmall, 'XSmall'],

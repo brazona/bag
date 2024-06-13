@@ -1,13 +1,14 @@
 export const environment = {
+  //@ts-ignore
   production: true,
   //@ts-ignore
-  ENVIRONMENT: window["env"]["APP_ENVIRONMENT"],
+  WEBSITE_VERSION: window["env"]["WEBSITE_VERSION"],
   //@ts-ignore
-  VERSION: window["env"]["APP_VERSION"],
+  WEBSITE_URL_APPLICATION: window["env"]["WEBSITE_URL_APPLICATION"],
   //@ts-ignore
-  LINK_GITHUB: window["env"]["LINK_GITHUB"],
+  WEBSITE_URL_GITHUB: window["env"]["WEBSITE_URL_GITHUB"],
   //@ts-ignore
-  LINK_YOUTUBE: window["env"]["LINK_YOUTUBE"],
+  WEBSITE_URL_YOUTUBE: window["env"]["WEBSITE_URL_YOUTUBE"],
   //@ts-ignore
-  LINK_LINKEDIN: window["env"]["LINK_LINKEDIN"],
+  WEBSITE_URL_LINKEDIN: window["env"]["WEBSITE_URL_LINKEDIN"],
 };

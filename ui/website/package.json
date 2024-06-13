@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run file_env && npm run file_env_local && ng serve -o",
+    "start": "npm run file_env && npm run prepare-env && ng serve -o",
     "start-docker": "npm run file_env && bash ./env-local.sh dockercompose && ng serve -o",
     "build": "npm run file_env && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
@@ -11,7 +11,7 @@
     "clean": "rm -rf ./node_modules package-lock.json .cache dist",
     "reinstall": "npm run clean && npm install",
     "file_env": "cp ./src/assets/env.template.js ./src/assets/env.js",
-    "file_env_local": "bash ./env-local.sh"
+    "prepare-env": "bash ./prepare-env.sh"
   },
   "private": true,
   "dependencies": {
