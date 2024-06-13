@@ -13,6 +13,8 @@ npm-debug.log
 yarn-error.log
 .angular
 
+# Java
+/target
 # IDEs and editors
 .idea/
 .project
@@ -42,3 +44,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Website
+/src/assets/env.js

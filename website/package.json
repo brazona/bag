@@ -4,14 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "npm run file_env && npm run prepare-env && ng serve -o",
-    "start-docker": "npm run file_env && bash ./env-local.sh dockercompose && ng serve -o",
     "build": "npm run file_env && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "clean": "rm -rf ./node_modules package-lock.json .cache dist",
     "reinstall": "npm run clean && npm install",
     "file_env": "cp ./src/assets/env.template.js ./src/assets/env.js",
-    "prepare-env": "bash ./prepare-env.sh"
+    "prepare-env": "bash ./scripts/prepare-env.sh",
+    "docker-compose": "npm run prepare-env && bash ./scripts/docker-compose.sh"
   },
   "private": true,
   "dependencies": {
