@@ -1,0 +1,19 @@
+@import '../../../styles/global/color_palette';
+@import '../../../styles/global/typography';
+
+.footer_rigth_icon img {
+    width: 100%;
+}
+.footer_rigth_versao span{
+    color: $font_color;
+    font-family: $font;
+    font-size: 16px;
+}
+.footer_center span{
+    color: $font_color;
+    font-family: $font;
+    font-size: 18px;
+}
+.footer_rigth {
+    padding-right: 0.5%;
+}
