@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-DIRETORIO_ENV=../../.resources/environments/.env
+DIRETORIO_ENV=../.resources/environments/.env
 DIR_ENV_RUN=./src/assets/env.run-time.js
 DIR_ENV_APP=./src/assets/env.js
 DIR_ENV_TEMP=./src/assets/env.template.js
