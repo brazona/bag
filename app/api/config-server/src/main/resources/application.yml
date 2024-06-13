@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      import: optional:file:.env[.properties]
+      server:
+        native:
+          search-locations:
+            - classpath:/config # Config files for all microservices
+            - classpath:/config/{application} # Config files for specific applications
+  security:
+    basic:
+      enabled: true
+      path: /**
+    ignored: /health**,/info**,/metrics**,/trace**
+    user:
+      name: ${SECURITY_NAME}
+      password: ${SECURITY_PASS}
+server:
+  port: ${CONFIG_SERVER_PORT}
+  #port: 8888
