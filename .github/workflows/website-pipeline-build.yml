@@ -31,14 +31,16 @@ jobs:
     with:
       environment_name: ${{needs.info-environment.outputs.environment_name}}
       path_pom: ./website/pom.xml
-  compile:
-    name: Run Maven Project
+  build:
+    name: Build and Push Docker image 
+    needs: [info-environment, generate-tag ]
     runs-on: ubuntu-latest
     permissions: write-all
-    needs: [info-environment]
     environment:
       name: ${{needs.info-environment.outputs.environment_name}}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
@@ -54,17 +56,6 @@ jobs:
           java-version: '11'
       - name: Build with Maven
         run: mvn -f ./website/ clean install -P build
-  build:
-    name: Build and Push Docker image 
-    needs: [info-environment, generate-tag , compile]
-    runs-on: ubuntu-latest
-    permissions: write-all
-    environment:
-      name: ${{needs.info-environment.outputs.environment_name}}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
