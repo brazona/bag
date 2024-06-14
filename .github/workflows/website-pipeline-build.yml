@@ -17,6 +17,7 @@ env:
 jobs:
   info-environment:
     name: Identifying the Environment
+    permissions: write-all
     uses: ./.github/workflows/identif-env.yml
     with:
       github_base_ref: ${{github.base_ref}}
@@ -24,6 +25,7 @@ jobs:
       github_ref_name: ${{github.ref_name}}
   generate-tag:
     name: Generate Tag Image Docker
+    permissions: write-all
     needs: [info-environment]
     uses: ./.github/workflows/version-image-generate.yml
     with:
