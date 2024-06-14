@@ -22,6 +22,7 @@ jobs:
       - name: Defined Version 
         id: version
         run: |
+          apt -y install libxml2-utils
           VALUE_VERSION=$(xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' ${{inputs.path_pom}})
           echo "version=$VALUE_VERSION" >> $GITHUB_OUTPUT
   generate-tag:
