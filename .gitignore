@@ -29,3 +29,5 @@ build/
 #environments
 .resources/environments/**
 !.resources/environments/README.md
+
+.github/workflows/old/**

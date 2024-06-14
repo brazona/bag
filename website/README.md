@@ -1,7 +1,9 @@
 # WEBSITE
 
-## atualização da variaveis de ambiente
+## Esboço
 
-Para incluir uma nova variavél ou excluir é necessário manter os arquivos __env.template.js__ e o arquivo __environment.ts__ com os mesmo valores.
+localhost: ``` npm run start ```
 
-Para atualização dos valores basta somente alterar o valor no arquivo __.env__
+dockercompose: ``` npm run docker-compose ```
+
+dockercompose: ``` kubectl apply -f deployment-run.yml ```
