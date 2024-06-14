@@ -27,7 +27,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install libxml2
           sudo apt-get install libxml2-utils
-          VALUE_VERSION=$(xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' ${{inputs.path_pom}})
+          VALUE_VERSION=$(xmllint --xpath '/*[local-name()="project"]/*[local-name()="version"]/text()' "${{inputs.path_pom}}")
           echo "version=$VALUE_VERSION" >> $GITHUB_OUTPUT
   generate-tag:
     name: Generate Tag

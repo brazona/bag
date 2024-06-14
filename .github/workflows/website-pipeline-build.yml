@@ -30,7 +30,7 @@ jobs:
     uses: ./.github/workflows/version-image-generate.yml
     with:
       environment_name: ${{needs.info-environment.outputs.environment_name}}
-      path_pom: website/pom.xml
+      path_pom: ./website/pom.xml
   compile:
     name: Run Maven Project
     runs-on: ubuntu-latest
