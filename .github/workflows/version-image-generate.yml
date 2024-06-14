@@ -19,6 +19,8 @@ jobs:
     outputs:
       version_pom: ${{ steps.version.outputs.version }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Defined Version 
         id: version
         run: |
