@@ -24,18 +24,25 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     env:
-      VALUES: ""
+      VALUES: ${{ vars.DEVELOPMENT_ENV }}
     outputs:
       values_envfile: ${{ steps.values_file_env.outputs.values_file_env }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Get Env File
+    - name: File Env Homologation
+      if: contains(inputs.name_env, 'HOMOLOGATION_ENV')
       run: |
-        var_field=vars.${{inputs.name_env}}
-        echo "VALUES=${{ vars.DEVELOPMENT_ENV }}" >> $GITHUB_ENV
-
+        echo "VALUES=${{ vars.HOMOLOGATION_ENV }}" >> $GITHUB_ENV
+    - name: File Env Staging
+      if: contains(inputs.name_env, 'STAGING_ENV')
+      run: |
+        echo "VALUES=${{ vars.STAGING_ENV }}" >> $GITHUB_ENV
+    - name: File Env Production
+      if: contains(inputs.name_env, 'PRODUCTION_ENV')
+      run: |
+        echo "VALUES=${{ vars.PRODUCTION_ENV }}" >> $GITHUB_ENV
     - name: Out Values Env File
       id: values_file_env
       run: echo "values_file_env=${{ env.VALUES }}" >> $GITHUB_OUTPUT
