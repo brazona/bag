@@ -62,9 +62,7 @@ jobs:
     name: Comment Pull Request Status
     permissions: write-all
     needs: [java, angular]
-    uses: ./.github/workflows/comment-pull-request.yml
-    if: always()    
-      
+    uses: ./.github/workflows/comment-pull-request.yml      
           
   # badge:
   #   name: Generate Badge
