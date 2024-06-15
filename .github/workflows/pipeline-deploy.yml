@@ -67,12 +67,7 @@ jobs:
     - name: Preparete Manisfest k8s
       run: |
         echo ${{ needs.envfile.outputs.var_values }} >> "template.txt"
-        echo "$(cat template.txt)"
-        echo $(cat ${{ needs.envfile.outputs.var_values }}) >> "website/env-temp.txt"
-        manifest=cat "website/env-temp.txt"
-        echo $manifest
-        echo "$manifest"
-        bash .github/workflows/scripts/prepare-manifest.sh website/env-temp.txt ${{env.MANIFEST_IN}} ${{env.MANIFEST_OUT}} ${{inputs.docker_image_tag}}
+        bash .github/workflows/scripts/prepare-manifest.sh template.txt ${{env.MANIFEST_IN}} ${{env.MANIFEST_OUT}} ${{inputs.docker_image_tag}}
     
     - name: Set Kubernetes Context
       uses: azure/k8s-set-context@v1
