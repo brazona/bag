@@ -1,6 +1,4 @@
 #!/bin/bash
-##bash scripts/prepare-manifest.sh ../.resources/environments/dev.env
-
 if [ $# -eq 4 ]; then
    DIRETORIO_ENV=$(echo $1)
    DIR_MANIFEST_IN=$(echo $2)
@@ -14,6 +12,12 @@ else
     echo -e "Exemplo:\nbash .github/workflows/scripts/prepare-manifest.sh site/env.txt site/deployment.yml site/deployment-temp.yml 0.0.1-snapshot-9";
     exit 1
 fi
+echo "Paramentros"
+echo $DIRETORIO_ENV
+echo $DIR_MANIFEST_IN
+echo $DIR_MANIFEST_OUT
+echo $DOCKER_IMAGE_TAG
+
 ## Extrai valor do arquivo env e salva num arquivo temporário
 #echo $(cat $DIRETORIO_ENV) >> $DIRETORIO_ENV
 ## Subistitui espaço por newline
