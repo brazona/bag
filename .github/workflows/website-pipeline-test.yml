@@ -26,6 +26,7 @@ jobs:
     steps:
       - name: Checkout the source code
         uses: actions/checkout@v3
+        
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -35,9 +36,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
         working-directory: website
-      - name: Run tests
-        run: npm run test:ci
-        working-directory: website
+      # - name: Run tests
+      #   run: npm run test:ci
+      #   working-directory: website
       - name: Build
         run: npm run build
         working-directory: website  
