@@ -1,7 +1,10 @@
 name: WebSite Pipeline Build
 on:
-  pull_request:
   push:
+    branches:
+      - 'main'
+      - 'releases/**'
+      - 'develop'
   workflow_dispatch:
 env:
   BRANCH_TARGET: ${{ github.ref_name }}
@@ -11,7 +14,6 @@ env:
   REGISTRY_DOCKER: ghcr.io
   REPOSITORY_DOCKER: ${{ github.repository }}
   VERSION_TYPE: ''
-  PR_NUMBER: ${{ github.event.number }}
   APP: website
   
 jobs:
@@ -71,8 +73,8 @@ jobs:
           context: ./website/
           push: true
           tags: ${{ env.REGISTRY_DOCKER }}/${{ github.repository }}/${{ env.APP }}:${{env.TAG_IMAGE}}
-  call_deploy:
-    name: Call Pipeline Deploy
+  deploy:
+    name: Pipeline Deploy
     needs: [info-environment, generate-tag, build]
     permissions: write-all
     uses: ./.github/workflows/pipeline-deploy.yml

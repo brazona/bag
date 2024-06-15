@@ -1,4 +1,4 @@
-name: Pipeline Deploy
+name: Apply Manifest K8S
 on:
   workflow_call:
     secrets:
@@ -53,7 +53,6 @@ jobs:
     - name: Out Values Env File
       id: values_file_env
       run: echo "values_file_env=${{ env.VALUES }}" >> $GITHUB_OUTPUT
-
   deploy:
     name: Deploy K8S
     runs-on: ubuntu-latest

@@ -1,5 +1,7 @@
 # WEBSITE
 
+[![WebSite Pipeline Build](https://github.com/brazona/bag/actions/workflows/website-pipeline-build.yml/badge.svg)](https://github.com/brazona/bag/actions/workflows/website-pipeline-build.yml)
+
 ## Esboço
 
 localhost: ``` npm run start ```
