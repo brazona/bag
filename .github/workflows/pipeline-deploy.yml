@@ -8,7 +8,7 @@ on:
       name_env:
         required: true
         type: string
-      path_manifest:
+      path_app:
         required: true
         type: string
       docker_image_tag:
@@ -18,6 +18,10 @@ on:
       successful:
         description: "Status Successful"
         value: ${{ jobs.deploy.outputs.successful }}
+env:
+  MANIFEST_IN: ${{ inputs.path_app }}/deployment.yml
+  MANIFEST_OUT: ${{ inputs.path_app }}/deployment-run.yml
+  ENV_TXT: ${{ inputs.path_app }}/env.txt
 jobs:
   envfile:
     name: Env File
@@ -26,7 +30,7 @@ jobs:
     env:
       VALUES: ${{ vars.DEVELOPMENT_ENV }}
     outputs:
-      values_envfile: ${{ steps.values_file_env.outputs.values_file_env }}
+      var_values: ${{ steps.values_file_env.outputs.values_file_env }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -61,8 +65,10 @@ jobs:
     
     - name: Preparete Manisfest k8s
       run: |
-        echo "VALUES=${{ '$var_field' }}" >> $GITHUB_ENV
-
+        echo "$(cat ${{needs.envfile.outputs.var_values}}) >> ${{env.ENV_TXT}}
+        cat ${{env.ENV_TXT}}
+        bash .github/workflows/scripts/prepare-manifest.sh ${{env.ENV_TXT}} ${{env.MANIFEST_IN}} ${{env.MANIFEST_OUT}} ${{inputs.docker_image_tag}}
+        cat ${{env.MANIFEST_OUT}}
     - name: Set Kubernetes Context
       uses: azure/k8s-set-context@v1
       with:

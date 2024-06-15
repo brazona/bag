@@ -22,7 +22,7 @@ jobs:
     with:
       environment_name: development
       name_env: ENV_DEVELOPMENT
-      path_manifest: ./website/deployment.yml
+      path_app: website
       docker_image_tag: 0.0.1-snapshot-9
   info-environment:
     name: Identifying the Environment
