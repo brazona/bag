@@ -1,47 +1,6 @@
-
 <img src="https://i.ibb.co/vkyVxwj/Group-6.png"  alt="Image" height="100" width="120" />
 
 ## Business Administration Games ( BAG )  
-
-
-
-![coverage](.github/badges/jacoco.svg)
-![branches coverage](.github/badges/branches.svg)
-
-![coverage](.github/badges/jacoco.svg)
-![branches coverage](.github/badges/branches.svg)
-
-![GitHub License](https://img.shields.io/github/license/brazona/bag)
-
-![GitHub deployments](https://img.shields.io/github/deployments/brazona/bag/development)
-
-![GitHub forks](https://img.shields.io/github/forks/brazona/bag)
-
-![GitHub forks](https://img.shields.io/github/forks/badges/shields)
-
-![Sonar Coverage](https://img.shields.io/sonar/coverage/swellaby%3Aletra?server=https%3A%2F%2Fsonarcloud.io)
-
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/brazona/bag/WebSite%20Pipeline%20Build)
-
-![GitHub Repo stars](https://img.shields.io/github/stars/brazona/bag)
-
-![GitHub top language](https://img.shields.io/github/languages/top/brazona/bag)
-
-![GitHub language count](https://img.shields.io/github/languages/count/brazona/bag)
-
-![GitHub contributors from allcontributors.org](https://img.shields.io/github/all-contributors/brazona/bag)
-
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/brazona/bag)
-
-![GitHub branch check runs](https://img.shields.io/github/check-runs/brazona/bag/main)
-
-
-![GitHub Release](https://img.shields.io/github/v/release/brazona/bag)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/brazona/bag)
-
-![GitHub Release Date](https://img.shields.io/github/release-date/brazona/bag)
-
 
 ## Descrição
 
@@ -51,8 +10,6 @@
 
 ## **Autor**
 ---
-----
-
 
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/29206101?v=4" width="100px;" alt=""/>
 

@@ -1,0 +1,61 @@
+@import '../styles/global/color_palette';
+@import '../styles/global/typography';
+
+.page {
+    height: 100%;
+    width: 100%;
+    background-image: url(../assets/img-background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header, .footer {
+    background-color: $dark_green_transp;
+}
+.body_content_sidebar {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: left;
+    margin-left: 20px;
+    height: 98%;
+    width: 60%;
+    background-color: $dark_green_transp;
+}
+.body_content_sidebar li {
+    display:inline;
+    //margin-right: 10px;
+    text-align: left;
+}
+.body_content_sidebar a button {
+    //color: $dark_green;
+    //margin-right: 10px;
+    color: $font_color;
+    font-family: $font;
+    font-size: 8px;
+    font-style: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: left;
+    //background-color: greenyellow;
+}
+.body_content_sidebar .mat-button {
+    background-color: beige;
+} 
+.body_content_sidebar a button:hover {
+    color: $dark_green;
+    background-color: $dark_green_transp;
+}
+#header_network_access_system_large_buttom {
+    background-color: $dark_green;
+    color: $font_color;
+    font-family: $font;
+    font-size: 10px;
+    text-align: center;
+    padding: 2%;
+    width: 90%;
+    margin: 2%;
+}
+.body_content_rigth {
+    background-color: $dark_green_transp;
+    padding-top: 2%;
+    margin: 2%;
+}
