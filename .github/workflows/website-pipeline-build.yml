@@ -15,22 +15,9 @@ env:
   APP: website
   
 jobs:
-  deploy:
-    name: Call Pipeline Deploy
-    permissions: write-all
-    uses: ./.github/workflows/pipeline-deploy.yml
-    secrets:
-      KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
-    with:
-      environment_name: development
-      name_env: ENV_DEVELOPMENT
-      path_app: website
-      docker_image_tag: 0.0.1-snapshot-9
   info-environment:
     name: Identifying the Environment
     permissions: write-all
-    needs: [deploy]
-    if: ${{needs.deploy.outputs.successful  == 'true'}}
     uses: ./.github/workflows/identif-env.yml
     with:
       github_base_ref: ${{github.base_ref}}
@@ -84,6 +71,17 @@ jobs:
           context: ./website/
           push: true
           tags: ${{ env.REGISTRY_DOCKER }}/${{ github.repository }}/${{ env.APP }}:${{env.TAG_IMAGE}}
-
+  call_deploy:
+    name: Call Pipeline Deploy
+    needs: [info-environment, generate-tag, build]
+    permissions: write-all
+    uses: ./.github/workflows/pipeline-deploy.yml
+    secrets:
+      KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
+    with:
+      environment_name: ${{needs.info-environment.outputs.environment_name}}
+      name_env: ${{needs.info-environment.outputs.github_env_file_field}}
+      path_app: website
+      docker_image_tag: ${{needs.generate-tag.outputs.tag}}     
 
 
