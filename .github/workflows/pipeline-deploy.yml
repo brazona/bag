@@ -1,0 +1,71 @@
+name: Pipeline Deploy
+on:
+  workflow_call:
+    inputs:
+      environment_name:
+        required: true
+        type: string
+      name_env:
+        required: true
+        type: string
+      path_manifest:
+        required: true
+        type: string
+      docker_image_tag:
+        required: true
+        type: string
+    outputs:
+      successful:
+        description: "Status Successful"
+        value: ${{ jobs.deploy.outputs.successful }}
+jobs:
+  envfile:
+    name: Env File
+    runs-on: ubuntu-latest
+    permissions: write-all
+    env:
+      VALUES: ""
+    outputs:
+      values_envfile: ${{ steps.values_file_env.outputs.values_file_env }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Get Env File
+      run: |
+        var_field=vars.${{inputs.name_env}}
+        echo "VALUES=${{ '$var_field' }}" >> $GITHUB_ENV
+
+    - name: Out Values Env File
+      id: values_file_env
+      run: echo "values_file_env=${{ env.VALUES }}" >> $GITHUB_OUTPUT
+
+  deploy:
+    name: Deploy K8S
+    runs-on: ubuntu-latest
+    needs: [envfile]
+    environment:
+      name: ${{inputs.environment_name}}
+    outputs:
+      successful: ${{ steps.status.outputs.status }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Preparete Manisfest k8s
+      run: |
+        echo "VALUES=${{ '$var_field' }}" >> $GITHUB_ENV
+
+    - name: Set Kubernetes Context
+      uses: azure/k8s-set-context@v1
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+    - name: Deploy to Cluster
+      run: | 
+        kubectl apply -f
+        
+    - name: Successful
+      id: status
+      run: echo "status=true" >> $GITHUB_OUTPUT
+

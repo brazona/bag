@@ -15,9 +15,20 @@ env:
   APP: website
   
 jobs:
+  deploy:
+    name: Identifying the Environment
+    permissions: write-all
+    uses: ./.github/workflows/pipeline-deploy.yml
+    with:
+      environment_name: development
+      name_env: ENV_DEVELOPMENT
+      path_manifest: ./website/deployment.yml
+      docker_image_tag: 0.0.1-snapshot-9
   info-environment:
     name: Identifying the Environment
     permissions: write-all
+    needs: [deploy]
+    if: ${{needs.deploy.outputs.successful  == 'true'}}
     uses: ./.github/workflows/identif-env.yml
     with:
       github_base_ref: ${{github.base_ref}}
