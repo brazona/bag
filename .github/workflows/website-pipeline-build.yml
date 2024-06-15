@@ -16,9 +16,11 @@ env:
   
 jobs:
   deploy:
-    name: Identifying the Environment
+    name: Call Pipeline Deploy
     permissions: write-all
     uses: ./.github/workflows/pipeline-deploy.yml
+    secrets:
+      KUBECONFIG: ${{ secrets.KUBECONFIG }}
     with:
       environment_name: development
       name_env: ENV_DEVELOPMENT

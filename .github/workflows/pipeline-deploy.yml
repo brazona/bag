@@ -1,6 +1,9 @@
 name: Pipeline Deploy
 on:
   workflow_call:
+    secrets:
+      KUBECONFIG:
+        required: true
     inputs:
       environment_name:
         required: true
