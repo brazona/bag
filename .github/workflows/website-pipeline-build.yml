@@ -21,7 +21,7 @@ jobs:
     uses: ./.github/workflows/pipeline-deploy.yml
     with:
       environment_name: development
-      name_env: HOMOLOGATION_ENV
+      name_env: ENV_DEVELOPMENT
       path_manifest: ./website/deployment.yml
       docker_image_tag: 0.0.1-snapshot-9
   info-environment:
