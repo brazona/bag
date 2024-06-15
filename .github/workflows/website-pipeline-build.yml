@@ -1,6 +1,8 @@
 name: WebSite Pipeline Build
 on:
   push:
+    paths:
+      - 'website/**'
     branches:
       - 'main'
       - 'releases/**'
