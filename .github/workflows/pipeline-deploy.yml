@@ -34,7 +34,7 @@ jobs:
     - name: Get Env File
       run: |
         var_field=vars.${{inputs.name_env}}
-        echo "VALUES=${{ '$var_field' }}" >> $GITHUB_ENV
+        echo "VALUES=${{ vars.DEVELOPMENT_ENV }}" >> $GITHUB_ENV
 
     - name: Out Values Env File
       id: values_file_env
