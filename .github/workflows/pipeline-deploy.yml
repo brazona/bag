@@ -66,9 +66,9 @@ jobs:
     - name: Preparete Manisfest k8s
       run: |
         cat > ${{env.ENV_TXT}}
-        echo "$(cat ${{env.ENV_TXT}})"
-        echo "$(cat ${{needs.envfile.outputs.var_values}})" >> "${{env.ENV_TXT}}"
-        echo "$(cat ${{env.ENV_TXT}})"
+        echo $(cat ${{env.ENV_TXT}})
+        echo "$(cat ${{needs.envfile.outputs.var_values}})" >> ${{env.ENV_TXT}}
+        echo $(cat ${{env.ENV_TXT}})
         bash .github/workflows/scripts/prepare-manifest.sh ${{env.ENV_TXT}} ${{env.MANIFEST_IN}} ${{env.MANIFEST_OUT}} ${{inputs.docker_image_tag}}
     
     - name: Set Kubernetes Context

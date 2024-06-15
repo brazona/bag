@@ -17,7 +17,7 @@ echo $DIRETORIO_ENV
 echo $DIR_MANIFEST_IN
 echo $DIR_MANIFEST_OUT
 echo $DOCKER_IMAGE_TAG
-
+echo $(cat $DIRETORIO_ENV)
 ## Extrai valor do arquivo env e salva num arquivo temporário
 #echo $(cat $DIRETORIO_ENV) >> $DIRETORIO_ENV
 ## Subistitui espaço por newline
