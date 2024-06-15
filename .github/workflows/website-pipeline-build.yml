@@ -20,7 +20,7 @@ jobs:
     permissions: write-all
     uses: ./.github/workflows/pipeline-deploy.yml
     secrets:
-      KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      KUBECONFIG: ${{ secrets.KUBE_CONFIG }}
     with:
       environment_name: development
       name_env: ENV_DEVELOPMENT
