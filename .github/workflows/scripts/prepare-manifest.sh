@@ -22,7 +22,7 @@ echo $(cat $DIRETORIO_ENV)
 #echo $(cat $DIRETORIO_ENV) >> $DIRETORIO_ENV
 ## Subistitui espaço por newline
 sed -i 's/\s\+/\n/g' $DIRETORIO_ENV
-find='${TAG}'
+find='$$$TAG'
 sed -i 's,'"$find"','$DOCKER_IMAGE_TAG',' $DIRETORIO_ENV
 #sed -i 's,"$TAG",'$DOCKER_IMAGE_TAG',' $DIRETORIO_ENV
 ## Gera manifesto com base no template
