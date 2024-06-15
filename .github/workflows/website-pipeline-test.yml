@@ -1,11 +1,23 @@
 name: WebSite Pipeline Test
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 jobs:
+  info-environment:
+    name: Identifying the Environment
+    permissions: write-all
+    uses: ./.github/workflows/identif-env.yml
+    with:
+      github_base_ref: ${{github.base_ref}}
+      github_event_name: ${{github.event_name }}
+      github_ref_name: ${{github.ref_name}}
   java:
     name: Maven Build
+    needs: [info-environment]
+    permissions: write-all
     runs-on: ubuntu-latest
+    environment:
+      name: ${{needs.info-environment.outputs.environment_name}}
     steps:
     - name: Checkout the source code
       uses: actions/checkout@v3
@@ -22,7 +34,11 @@ jobs:
 
   angular:
     name: Angular Build
+    needs: [info-environment]
+    permissions: write-all
     runs-on: ubuntu-latest
+    environment:
+      name: ${{needs.info-environment.outputs.environment_name}}
     steps:
       - name: Checkout the source code
         uses: actions/checkout@v3
@@ -41,16 +57,23 @@ jobs:
       #   working-directory: website
       - name: Build
         run: npm run build
-        working-directory: website  
-
-  badge:
-    name: Generate Badge
-    needs: [angular, java]
+        working-directory: website 
+  comment_pr:
+    name: Comment Pull Request Status
     permissions: write-all
-    uses: ./.github/workflows/build-badges-branch.yml
-    with:
-      path_app_pom: website
-      github_event_name: ${{github.event_name }}
-      github_pr_number: 1
-      # github_pr_number: ${{github.event.pull_request.number}}
+    needs: [java, angular]
+    uses: ./.github/workflows/comment-pull-request.yml
+    if: always()    
+      
+          
+  # badge:
+  #   name: Generate Badge
+  #   needs: [angular, java]
+  #   permissions: write-all
+  #   uses: ./.github/workflows/build-badges-branch.yml
+  #   with:
+  #     path_app_pom: website
+  #     github_event_name: ${{github.event_name }}
+  #     github_pr_number: 1
+  #     # github_pr_number: ${{github.event.pull_request.number}}
 
