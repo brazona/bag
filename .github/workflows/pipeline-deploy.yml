@@ -54,6 +54,7 @@ jobs:
   deploy:
     name: Deploy K8S
     runs-on: ubuntu-latest
+    permissions: write-all
     needs: [envfile]
     environment:
       name: ${{inputs.environment_name}}
@@ -65,6 +66,8 @@ jobs:
     
     - name: Preparete Manisfest k8s
       run: |
+        echo $(cat ${{ needs.envfile.outputs.var_values }}) >> "template.txt"
+        echo "ENV_TEMP=$(cat template.txt)"
         echo $(cat ${{ needs.envfile.outputs.var_values }}) >> "website/env-temp.txt"
         manifest=cat "website/env-temp.txt"
         echo $manifest
