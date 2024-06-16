@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  db:
+    container_name: ${DB_CONTAINER_NAME}
+    image: "postgres:${DB_IMAGE_TAG}"
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "${DB_PORT_EXT}:5432"
+    volumes:
+      - bag_app_postgres:/var/lib/postgresql/data
+volumes:   
+  bag_app_postgres:

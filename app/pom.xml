@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>br.brazona</groupId>
-		<artifactId>app</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.2.6</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>app-api</artifactId>
+
+	<groupId>br.brazona.bag</groupId>
+	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>app</name>
 	<packaging>pom</packaging>
-	<name>app-api</name>
+	<description>Demo project for Spring Boot</description>
+
 	<properties>
+		<java.version>11</java.version>
+		<spring-cloud.version>Hoxton.SR11</spring-cloud.version>
 		<springfox.version>2.7.0</springfox.version>
 	</properties>
 	<dependencies>
@@ -36,13 +43,7 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<!-- <module>app-api</module> -->
-		<module>config-server</module>
-		<module>eureka-server</module>
-		<module>api-gateway</module>
-		<module>authentication</module>
-		<module>institutions</module>
-		<module>profiles</module>
-		<module>users</module>
+		<module>api</module>
+		<module>ui</module>
 	</modules>
 </project>
