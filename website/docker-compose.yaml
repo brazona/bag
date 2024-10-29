@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  website:
+    tty: true
+    container_name: website
+    build:
+      context: .
+    ports:
+      - "${WEBSITE_PORT_EXT}:${WEBSITE_PORT_INT}"
+    restart: always
+    environment:
+      - WEBSITE_PORT_INT=${WEBSITE_PORT_INT}
+      - WEBSITE_URL_APPLICATION=${WEBSITE_URL_APPLICATION}
+      - WEBSITE_URL_GITHUB=${WEBSITE_URL_GITHUB}
+      - WEBSITE_URL_YOUTUBE=${WEBSITE_URL_YOUTUBE}
+      - WEBSITE_URL_LINKEDIN=${WEBSITE_URL_LINKEDIN}
+      - WEBSITE_VERSION=${WEBSITE_VERSION}
