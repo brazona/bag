@@ -1,0 +1,121 @@
+
+@import '../../../styles/global/color_palette';
+@import '../../../styles/global/typography';
+
+#logotype-large {
+    max-width: 60%;
+    height: auto;
+    margin-left: 17%;
+    margin-top: 3%;
+    object-fit: cover;
+}
+
+.header-content {
+    padding-top: 5px;
+}
+.header-content-title h1, h2, h3, h4 {
+    color: $font_color;
+    font-family: $font;
+    font-style: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: center;
+}
+.header-content-title h1 {
+    font-size: 36px;
+}
+.header-content-title h3 {
+    font-size: 20px;
+}
+.header-sidebar-large ul li a {
+    margin-right: 10px;
+    color: $font_color;
+    font-family: $font;
+    font-size: 20px;
+    font-style: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: left;
+}
+.header-sidebar-medium ul li a button {
+    margin-right: 10px;
+    color: $font_color;
+    font-family: $font;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: left;
+}
+ 
+.header-content-navbar ul {
+    display:inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;   
+}
+.header-content-navbar ul li {
+    display:inline;
+}
+.header-content-navbar {
+    margin-top: 1%;
+    text-align: left;
+    margin-left: 14%;
+    height: 100%;
+}
+
+.header-network {
+    max-width: 70%;
+    align-items: center;
+}
+.header-network-content {
+    max-width: 80%;
+}
+
+.header_network_icon img {
+    max-width: 65%;
+    margin: 5%;
+}
+.header_network_icon div {
+    width: 100%;
+}
+
+.header_network_access_system {
+    align-items: center;
+}
+#header_network_access_system_large_buttom {
+    background-color: $dark_green;
+    color: $font_color;
+    font-family: $font;
+    font-size: 12px;
+    text-align: center;
+    padding: 2%;
+    width: 100%;
+}
+.header_network_access_system_small_button-sidebar {
+    max-width: 100%;
+    height: 80%;
+    background-color: transparent;
+}
+.header_network_access_system_small_button-sidebar mat-toolbar-row {
+    max-width: 100%;
+}
+.header_network_access_system_small_button-sidebar mat-toolbar-row button {
+    margin-left: 50%;
+    color: $font_color;
+}
+.header_network_access_system_small_button-sidebar mat-toolbar-row button:hover {  
+    color: $dark_green;
+}
+.header-sidebar-small ul li a button {
+    margin-right: 6px;
+    color: $font_color;
+    font-family: $font;
+    font-size: 11px;
+    font-style: normal;
+    line-height: normal;
+    text-decoration: none;
+    text-align: left;
+}    
+
+

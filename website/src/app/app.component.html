@@ -1,0 +1,27 @@
+<div class="page" fxLayout="column">
+  <div class="header" fxLayout="row" fxFlex="15">
+    <app-header fxLayout="row" fxFlex="100" (isToolbar)="isHeaderToolBar = $event"></app-header>
+  </div>
+  <div class="body" fxLayout="row" fxFlex="75">
+    <div class="body_content" fxLayout="row" fxFlex="100" fxLayout.xs="column" fxFlex.xs="85">
+        <div class="body_content_left" fxFlex = "40" fxFlex.xs="15">
+        </div>
+        <div class="body_content_rigth" fxFlex="60" fxFlex.xs="85">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="body_content_sidebar" *ngIf="currentScreenSize.type_screen == 0" fxFlex.xs="15" [hidden]="!isHeaderToolBar">
+      <li *ngFor="let toolbarItem of toolBarList">
+          <a>
+              <!-- <button mat-button>{{ toolbarItem.name }}</button> -->
+              <a><button mat-button (click)="pageOnChange(toolbarItem.routerLink)">{{ toolbarItem.name }}</button></a>
+          </a>
+      </li>
+      <a href="{{ url_ui_app }}"><button id="header_network_access_system_large_buttom" mat-flat-button>ACESSE O SITEMA</button></a>
+    </div>
+  </div>
+  <div class="footer" fxLayout="row" fxFlex="10">
+    <app-footer fxLayout="row" fxFlex="100"></app-footer>
+  </div>
+</div>
+

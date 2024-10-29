@@ -1,0 +1,20 @@
+@import '../../../styles/global/color_palette';
+@import '../../../styles/global/typography';
+h2 {
+    color: $font_color;
+    font-family: $font;
+    font-size: 34px;
+    padding: 2%;
+    text-align: left;
+    justify-content: left;
+}
+
+p {
+    color: $font_color;
+    font-family: $font;
+    font-size: 14px;
+    //text-align: center;
+    padding: 2%;
+    //width: 100%;
+    justify-content: left;
+}

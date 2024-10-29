@@ -1,0 +1,79 @@
+<div class="header" fxLayout="row" fxFlex="100">
+    <div class="header-logo" fxFlex="25">
+        <img id="logotype-large" mat-card-image class="img" src="../../../assets/logo.png">
+    </div>
+    <div class="header-content" fxFlex="55" fxLayout="column">
+        <div class="header-content-title" fxFlex="55">
+           <div *ngIf="currentScreenSize.type_screen == 3">
+                <h1>BUSINESS ADMINISTRATION GAMES</h1>
+            </div>
+            <div *ngIf="currentScreenSize.type_screen == 2">
+                <h2>BUSINESS ADMINISTRATION GAMES</h2>
+            </div>
+            <div *ngIf="currentScreenSize.type_screen == 1" >
+                <h4>BUSINESS ADMINISTRATION GAMES</h4>
+            </div>
+            <div *ngIf="currentScreenSize.type_screen == 0" >
+                <h4>BUSINESS ADMINISTRATION GAMES</h4>
+            </div>
+        </div>
+        <div class="header-content-navbar" fxFlex="55" fxLayout="column">
+            <div class="header-sidebar-large" *ngIf="currentScreenSize.type_screen == 3">
+                <ul>
+                    <li *ngFor="let toolbarItem of toolBarList">
+                        <!-- <a routerLink="/login" routerLinkActive="selected">{{toolbarItem.name}}</a> -->
+                        <a><button mat-button (click)="pageOnChange(toolbarItem.routerLink)">{{ toolbarItem.name }}</button></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header-sidebar-medium" *ngIf="currentScreenSize.type_screen == 2">
+                <ul>
+                    <li *ngFor="let toolbarItem of toolBarList">
+                        <a><button mat-button (click)="pageOnChange(toolbarItem.routerLink)">{{ toolbarItem.name }}</button></a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="header-sidebar-small" *ngIf="currentScreenSize.type_screen == 1" >
+                <ul>
+                    <li *ngFor="let toolbarItem of toolBarList">
+                        <a><button mat-button (click)="pageOnChange(toolbarItem.routerLink)">{{ toolbarItem.name }}</button></a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-network" fxFlex="20" fxLayout="column" fxLayout.xs="column" fxFlex.xs="25" fxLayout.sm="column" fxFlex.sm="25">
+        <div class="header-network-content" fxFlex="100" fxLayout="column">
+            <div class="header_network_icon" fxLayout="row" fxFlex="100" fxFlex.xs="200" fxFlex.sm="250" fxLayoutAlign="center center">
+                <div>
+                    <a href="{{ url_youtube }}" target="_blank"><img src="../../../assets/icon-youtube.png"/></a>
+                    <!-- <img src="../../../assets/icon-youtube.png"/><a href="https://br.linkedin.com/"></a> -->
+                </div>
+                <div>
+                    <a href="{{ url_github }}" target="_blank"><img src="../../../assets/icon-github.png"/></a>
+                    <!-- <img src="../../../assets/icon-github.png"/> -->
+                </div>
+                <div>
+                    <a href="{{ url_linkedin }}" target="_blank"><img src="../../../assets/icon-linkedin.png"/></a>
+                    <!-- <img src="../../../assets/icon-linkedin.png"/> -->
+                </div>
+            </div>
+            <div class="header_network_access_system" fxLayout="row" fxFlex="100">
+                <div *ngIf="currentScreenSize.type_screen == 0 ;then header_network_access_system_small else header_network_access_system_large"></div>
+                <ng-template #header_network_access_system_large class="header_network_access_system_large">
+                    <a href="{{ url_ui_app }}"><button id="header_network_access_system_large_buttom" mat-flat-button>ACESSE O SITEMA</button></a>
+                    <!-- <button id="header_network_access_system_large_buttom" mat-flat-button (click)="pageLogin()">ACESSE O SITEMA</button> -->
+                </ng-template>
+                <ng-template #header_network_access_system_small>
+                    <mat-toolbar class="header_network_access_system_small_button-sidebar">
+                        <mat-toolbar-row>
+                            <button mat-icon-button aria-label="Menu" (click)="menuSidebar()">
+                                <mat-icon>menu</mat-icon>
+                            </button>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                </ng-template>
+            </div>        
+        </div>
+    </div>
+</div>
