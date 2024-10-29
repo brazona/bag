@@ -1,7 +1,7 @@
 ################
 # Run APP API #
 ################
-FROM openjdk:11
+FROM openjdk:18
 ARG PATH_FILE
 VOLUME /tmp
 
