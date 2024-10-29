@@ -5,11 +5,18 @@ on: # when the action should run. Can also be a CRON or in response to external 
 
 jobs:
   ngxUptodate:
+    name: Update Angular
     runs-on: ubuntu-latest
     steps:
-      - name: Updating ng dependencies # the magic happens here !
+      - name: Updating ng dependencies app ui # the magic happens here !
         uses: fast-facts/ng-update@v1
         with:
           base-branch: main
-          project-path: ./app
+          project-path: ./app/ui
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Updating ng dependencies website # the magic happens here !
+        uses: fast-facts/ng-update@v1
+        with:
+          base-branch: main
+          project-path: ./website
+          repo-token: ${{ secrets.GITHUB_TOKEN }}    
